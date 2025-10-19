@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A7 Motion Design | Portfolio Completo</title>
+    <title>Alexis Jr. - Editor de Vídeo e Motion Designer | A7 Motion Design</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -214,32 +214,319 @@
             transform: translateX(10px);
         }
         
-        .hero {
+        /* SEÇÃO APRESENTAÇÃO COM SCROLL EFFECTS */
+        .intro-section {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 100px;
+            padding: 120px 0 80px;
             position: relative;
             overflow: hidden;
         }
         
-        .hero::before {
+        .intro-section::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(0, 255, 224, 0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
+            top: 20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 255, 224, 0.08) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
         }
         
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        .intro-section::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.06) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+        
+        .intro-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .intro-image {
+            position: relative;
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .intro-image.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            opacity: 0.15;
+            filter: blur(40px);
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.1); opacity: 0.25; }
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            border: 4px solid rgba(0, 255, 224, 0.3);
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 60px rgba(0, 255, 224, 0.2);
+        }
+        
+        .intro-content {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+        }
+        
+        .intro-content.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .intro-badges {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            padding: 0.6rem 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 255, 224, 0.15), rgba(0, 102, 255, 0.15));
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 255, 224, 0.2);
+            animation: badge-float 3s ease-in-out infinite;
+        }
+        
+        .badge:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes badge-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .intro-name {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--white), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .intro-title {
+            font-size: clamp(1.3rem, 2.5vw, 2rem);
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .intro-highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .intro-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-box {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .stat-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat-box:nth-child(1) { transition-delay: 0.6s; }
+        .stat-box:nth-child(2) { transition-delay: 0.7s; }
+        .stat-box:nth-child(3) { transition-delay: 0.8s; }
+        .stat-box:nth-child(4) { transition-delay: 0.9s; }
+        
+        .stat-box:hover {
+            background: rgba(0, 255, 224, 0.05);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .intro-education {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 1s;
+        }
+        
+        .intro-education.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .education-title {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        
+        .education-list {
+            list-style: none;
+            display: grid;
+            gap: 0.8rem;
+        }
+        
+        .education-item {
+            color: var(--gray);
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .education-item::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .education-item strong {
+            color: var(--white);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.5s forwards, bounce 2s ease-in-out 2.5s infinite;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 0.6;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, 10px); }
+        }
+        
+        .scroll-text {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray);
+        }
+        
+        .scroll-arrow {
+            width: 24px;
+            height: 24px;
+            border-left: 2px solid var(--primary);
+            border-bottom: 2px solid var(--primary);
+            transform: rotate(-45deg);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* HERO ORIGINAL (agora é seção de stats) */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-light) 100%);
         }
         
         .hero-content {
@@ -248,16 +535,10 @@
         }
         
         h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 8vw, 4rem);
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
         
         .subtitle {
@@ -515,6 +796,15 @@
                 gap: 1rem;
                 font-size: 0.85rem;
             }
+            
+            .intro-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .intro-stats {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 768px) {
@@ -532,6 +822,22 @@
             
             .mobile-menu-button {
                 display: block;
+            }
+            
+            .intro-section {
+                padding: 100px 0 60px;
+            }
+            
+            .intro-container {
+                padding: 0 1.5rem;
+            }
+            
+            .intro-badges {
+                justify-content: center;
+            }
+            
+            .intro-content {
+                text-align: center;
             }
             
             .projects-grid {
@@ -617,34 +923,73 @@
         </ul>
     </div>
 
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <h1>
-                <span class="gradient-text">Motion Design</span><br>
-                que Transforma Marcas
-            </h1>
-            <p class="subtitle">
-                Especialista em criar experiências visuais inesquecíveis através de motion graphics, edição de vídeo e animações que capturam atenção e geram resultados.
-            </p>
-            
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="240">0</div>
-                    <div class="stat-label">Projetos</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="50">0</div>
-                    <div class="stat-label">Clientes</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="5">0</div>
-                    <div class="stat-label">Anos</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="98">0</div>
-                    <div class="stat-label">Satisfação</div>
+    <!-- SEÇÃO DE APRESENTAÇÃO -->
+    <section class="intro-section" id="inicio">
+        <div class="intro-container">
+            <div class="intro-image">
+                <div class="image-wrapper">
+                    <img src="https://raw.githubusercontent.com/a7motiondesign-hub/sitea7/main/cartoon.png" alt="Alexis Jr. - Editor de Vídeo e Motion Designer" class="profile-image">
                 </div>
             </div>
+            
+            <div class="intro-content">
+                <div class="intro-badges">
+                    <div class="badge">TOP FREELANCER</div>
+                    <div class="badge">FREELANCER PLUS</div>
+                </div>
+                
+                <h1 class="intro-name">Alexis Jr.</h1>
+                <p class="intro-title">
+                    Editor de Vídeo e Motion Designer <span class="intro-highlight">Especialista</span>
+                </p>
+                
+                <div class="intro-stats">
+                    <div class="stat-box">
+                        <div class="stat-value">10+</div>
+                        <div class="stat-label">Anos de Experiência</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">+240</div>
+                        <div class="stat-label">Projetos Entregues</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">98%</div>
+                        <div class="stat-label">Satisfação</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">+50</div>
+                        <div class="stat-label">Clientes Felizes</div>
+                    </div>
+                </div>
+                
+                <div class="intro-education">
+                    <div class="education-title">Formação Internacional</div>
+                    <ul class="education-list">
+                        <li class="education-item"><strong>School of Motion</strong> (EUA) — Motion Graphics</li>
+                        <li class="education-item"><strong>Motion Design School</strong> (EUA) — Design Avançado</li>
+                        <li class="education-item"><strong>California Institute of the Arts</strong> (EUA)</li>
+                        <li class="education-item"><strong>AV Makers</strong> — Produção Audiovisual</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span class="scroll-text">Role para ver o portfólio</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                <span class="gradient-text">Experiências Visuais</span><br>
+                Inesquecíveis
+            </h1>
+            <p class="subtitle">
+                Vídeos educativos, institucionais, marketing e reels que transformam marcas e geram resultados
+            </p>
             
             <a href="#portfolio" class="cta-button-large">Ver Portfolio Completo</a>
         </div>
@@ -657,6 +1002,7 @@
             </h2>
             <p class="section-subtitle">Mais de 50 projetos organizados por categoria</p>
 
+            <!-- SHOW REELS E DESTAQUES (com Inbramerc e Compilado adicionados) -->
             <div class="category" id="showreels">
                 <div class="category-header">
                     <h3 class="category-title">🎞 Show Reels e Destaques</h3>
@@ -691,6 +1037,26 @@
                         <div class="project-info">
                             <div class="project-title">Especialização VEO 3</div>
                             <span class="project-category">Tecnologia IA</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="video-container" data-video-id="CqDADaKq1As">
+                            <img src="https://img.youtube.com/vi/CqDADaKq1As/maxresdefault.jpg" class="video-thumbnail">
+                            <div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Compilado 2025 de Edições de Vídeo</div>
+                            <span class="project-category">Edição de Vídeo</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="video-container" data-video-id="_b3h5PUtmIg">
+                            <img src="https://img.youtube.com/vi/_b3h5PUtmIg/maxresdefault.jpg" class="video-thumbnail">
+                            <div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Inbramerc - Multi-plataforma</div>
+                            <span class="project-category">Instagram & YouTube</span>
                         </div>
                     </div>
                 </div>
@@ -888,8 +1254,6 @@
                     <p class="category-description">Versatilidade em diversos setores</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card"><div class="video-container" data-video-id="CqDADaKq1As"><img src="https://img.youtube.com/vi/CqDADaKq1As/maxresdefault.jpg" class="video-thumbnail"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Compilado 2025 de Edições de Vídeo</div><span class="project-category">Retail</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="_b3h5PUtmIg"><img src="https://img.youtube.com/vi/_b3h5PUtmIg/maxresdefault.jpg" class="video-thumbnail"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Inbramerc - Multi-plataforma</div><span class="project-category">Instagram & YouTube</span></div></div>
                     <div class="project-card"><div class="video-container" data-video-id="1eWkIv_9YpM"><img src="https://img.youtube.com/vi/1eWkIv_9YpM/maxresdefault.jpg" class="video-thumbnail"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Feedback dos Nossos Clientes</div><span class="project-category">Depoimentos</span></div></div>
                 </div>
             </div>
@@ -936,6 +1300,21 @@
         }
         
         window.addEventListener('scroll', updateScrollProgress);
+        
+        // SCROLL TRIGGER PARA INTRO
+        const introObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+        
+        document.querySelectorAll('.intro-image, .intro-content, .stat-box, .intro-education').forEach(el => {
+            introObserver.observe(el);
+        });
         
         // CONTADOR ANIMADO
         const animateCounter = (element) => {
