@@ -47,6 +47,38 @@
             transition: width 0.1s ease;
         }
         
+        /* AVISO DISCRETO */
+        .platform-notice {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--primary);
+            padding: 0.8rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--gray);
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            max-width: 90%;
+            width: auto;
+            opacity: 0;
+            animation: slideDown 0.5s ease 1s forwards;
+        }
+        
+        @keyframes slideDown {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .platform-notice span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -219,7 +251,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 120px 0 80px;
+            padding: 150px 0 80px;
             position: relative;
             overflow: hidden;
         }
@@ -311,6 +343,29 @@
             box-shadow: 0 20px 60px rgba(0, 255, 224, 0.2);
         }
         
+        /* VÍDEO 99 FREELAS - TAMANHO MAIOR */
+        .platform-video {
+            margin-top: 3rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.5s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .platform-video video {
+            max-width: 450px;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 255, 224, 0.25);
+            border: 2px solid rgba(0, 255, 224, 0.2);
+        }
+        
         .intro-content {
             opacity: 0;
             transform: translateX(100px);
@@ -341,15 +396,40 @@
             color: var(--primary);
             box-shadow: 0 0 20px rgba(0, 255, 224, 0.2);
             animation: badge-float 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
         .badge:nth-child(2) {
             animation-delay: 0.5s;
         }
         
+        .badge:nth-child(3) {
+            animation-delay: 1s;
+        }
+        
+        .badge:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+        
         @keyframes badge-float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
+        }
+        
+        /* ÍCONE DE CHECK */
+        .badge .check-icon {
+            width: 18px;
+            height: 18px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--dark);
+            font-weight: 900;
         }
         
         .intro-name {
@@ -805,6 +885,15 @@
             .intro-stats {
                 grid-template-columns: 1fr;
             }
+            
+            .platform-notice {
+                font-size: 0.75rem;
+                padding: 0.6rem 1rem;
+            }
+            
+            .platform-video video {
+                max-width: 380px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -825,7 +914,7 @@
             }
             
             .intro-section {
-                padding: 100px 0 60px;
+                padding: 140px 0 60px;
             }
             
             .intro-container {
@@ -836,8 +925,23 @@
                 justify-content: center;
             }
             
+            .badge {
+                font-size: 0.75rem;
+                padding: 0.5rem 1rem;
+            }
+            
+            .badge .check-icon {
+                width: 16px;
+                height: 16px;
+                font-size: 10px;
+            }
+            
             .intro-content {
                 text-align: center;
+            }
+            
+            .platform-video video {
+                max-width: 90%;
             }
             
             .projects-grid {
@@ -875,11 +979,24 @@
                 border-top: 11px solid transparent;
                 border-bottom: 11px solid transparent;
             }
+            
+            .platform-notice {
+                top: 100px;
+                font-size: 0.7rem;
+                padding: 0.6rem 1rem;
+                width: 92%;
+                line-height: 1.4;
+            }
         }
     </style>
 </head>
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- AVISO DISCRETO -->
+    <div class="platform-notice">
+        Este site não possui nenhum dado de contato externo, cumprindo o <span>regulamento da plataforma 99 Freelas</span>
+    </div>
     
     <header>
         <nav>
@@ -930,12 +1047,24 @@
                 <div class="image-wrapper">
                     <img src="https://raw.githubusercontent.com/a7motiondesign-hub/sitea7/main/cartoon.png" alt="Alexis Jr. - Editor de Vídeo e Motion Designer" class="profile-image">
                 </div>
+                
+                <!-- VÍDEO 99 FREELAS COM AUTOPLAY E LOOP - TAMANHO MAIOR -->
+                <div class="platform-video">
+                    <video autoplay loop muted playsinline>
+                        <source src="https://raw.githubusercontent.com/a7motiondesign-hub/sitea7/main/Final%2099%20freelas.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
             
             <div class="intro-content">
                 <div class="intro-badges">
                     <div class="badge">TOP FREELANCER</div>
                     <div class="badge">FREELANCER PLUS</div>
+                    <div class="badge">
+                        PERFIL REAL VERIFICADO
+                        <span class="check-icon">✓</span>
+                    </div>
+                    <div class="badge">EMITO NOTA FISCAL</div>
                 </div>
                 
                 <h1 class="intro-name">Alexis Jr.</h1>
@@ -949,7 +1078,7 @@
                         <div class="stat-label">Anos de Experiência</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-value">+240</div>
+                        <div class="stat-value">+540</div>
                         <div class="stat-label">Projetos Entregues</div>
                     </div>
                     <div class="stat-box">
@@ -957,7 +1086,7 @@
                         <div class="stat-label">Satisfação</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-value">+50</div>
+                        <div class="stat-value">+130</div>
                         <div class="stat-label">Clientes Felizes</div>
                     </div>
                 </div>
@@ -1002,7 +1131,7 @@
             </h2>
             <p class="section-subtitle">Mais de 50 projetos organizados por categoria</p>
 
-            <!-- SHOW REELS E DESTAQUES (com Inbramerc e Compilado adicionados) -->
+            <!-- SHOW REELS E DESTAQUES -->
             <div class="category" id="showreels">
                 <div class="category-header">
                     <h3 class="category-title">🎞 Show Reels e Destaques</h3>
