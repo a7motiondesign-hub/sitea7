@@ -1073,6 +1073,23 @@
                     <p class="category-description">Evolução temporal do portfólio - demonstração de expertise e versatilidade</p>
                 </div>
                 <div class="projects-grid">
+                    <!-- NOVO VÍDEO EM PRIMEIRO LUGAR -->
+                    <div class="project-card">
+                        <div class="video-container" data-video-id="HLN4Tfhy5u8">
+                            <img src="https://img.youtube.com/vi/HLN4Tfhy5u8/maxresdefault.jpg" class="video-thumbnail" alt="Panorama Geral">
+                            <div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Panorama Geral do que Fazemos</div>
+                            <span class="project-category">Visão Completa</span>
+                            <div class="project-tags">
+                                <span class="tag-motion">Motion Design</span>
+                                <span class="tag-edicao">Edição de Vídeo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- VÍDEOS EXISTENTES -->
                     <div class="project-card">
                         <div class="video-container" data-video-id="AuY2VzMv104">
                             <img src="https://img.youtube.com/vi/AuY2VzMv104/maxresdefault.jpg" class="video-thumbnail" alt="Show Reel 1">
@@ -1359,7 +1376,7 @@
             y: -200, rotation: -180, scale: 0.8
         });
         
-        // SCROLLTRIGGER HORIZONTAL NO MOBILE - MAIS LENTO, COMPLETO E COM MARGEM
+        // SCROLLTRIGGER HORIZONTAL NO MOBILE - MAIS RÁPIDO (METADE DO TEMPO)
         if (window.innerWidth <= 768) {
             const videoElement = document.querySelector('.platform-video video');
             
@@ -1382,14 +1399,14 @@
             );
         }
         
-        // FOTO E NOME - PARA NO TOPO E FICA FIXA
+        // FOTO E NOME - PARA NO TOPO E FICA FIXA - SCROLL MAIS RÁPIDO
         gsap.fromTo('.photo-name-wrapper', 
             { opacity: 0, scale: 0, rotation: -90 }, 
             {
                 scrollTrigger: { 
                     trigger: '.photo-element', 
                     start: 'top 20%',
-                    end: '+=300',
+                    end: '+=400',
                     scrub: 0.5,
                     pin: '.photo-name-wrapper',
                     pinSpacing: true,
@@ -1496,7 +1513,7 @@
             });
         });
         
-        console.log('✅ Site final: Badges mais próximos e aparecem mais cedo!');
+        console.log('✅ Site completo: Panorama Geral em 1º + Scroll 50% mais rápido!');
     </script>
 
 </body>
