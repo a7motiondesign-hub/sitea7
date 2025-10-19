@@ -308,7 +308,7 @@
             min-height: auto;
             position: relative;
             padding-top: 150px;
-            padding-bottom: 2rem;
+            padding-bottom: 0.5rem;
         }
         
         .intro-container {
@@ -322,9 +322,14 @@
             margin-bottom: 2rem;
         }
         
+        .education-element {
+            margin-bottom: 0 !important;
+        }
+        
         .platform-video {
             margin-bottom: 2rem;
             padding-top: 2rem;
+            overflow: visible;
         }
         
         .platform-video video {
@@ -533,7 +538,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 2rem 2rem 3rem 2rem;
             background: linear-gradient(180deg, var(--dark) 0%, var(--dark-light) 100%);
         }
         
@@ -731,6 +736,13 @@
             color: var(--white);
         }
         
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
         .project-category {
             font-family: 'Raleway', sans-serif;
             display: inline-block;
@@ -739,6 +751,30 @@
             color: var(--dark);
             border-radius: 20px;
             font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .tag-motion {
+            font-family: 'Raleway', sans-serif;
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(0, 255, 224, 0.15);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .tag-edicao {
+            font-family: 'Raleway', sans-serif;
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(102, 102, 255, 0.15);
+            border: 1px solid #6666FF;
+            color: #8888FF;
+            border-radius: 15px;
+            font-size: 0.75rem;
             font-weight: 600;
         }
         
@@ -848,6 +884,7 @@
             
             .intro-section {
                 min-height: 300vh;
+                padding-top: 120px;
                 padding-bottom: 4rem;
             }
             
@@ -855,9 +892,30 @@
                 margin-bottom: 4vh;
             }
             
+            .education-element {
+                margin-bottom: 4vh !important;
+            }
+            
             .platform-video {
                 padding-top: 5vh;
                 margin-bottom: 0;
+            }
+            
+            .intro-badges {
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .badges-element {
+                padding-top: 0.5rem;
+                position: relative;
+                z-index: 5;
+                margin-top: 0.5rem;
+            }
+            
+            .photo-element {
+                position: relative;
+                z-index: 10;
             }
         }
     </style>
@@ -980,9 +1038,9 @@
                     <div class="education-title">Formação Internacional</div>
                     <ul class="education-list">
                         <li class="education-item"><strong>School of Motion</strong> (EUA) — Motion Graphics</li>
-                        <li class="education-item"><strong>Motion Design School</strong> (EUA) — Design Avançado</li>
-                        <li class="education-item"><strong>California Institute of the Arts</strong> (EUA)</li>
-                        <li class="education-item"><strong>AV Makers</strong> — Produção Audiovisual</li>
+                        <li class="education-item"><strong>Motion Design School</strong> (EUA) — Motion Design</li>
+                        <li class="education-item"><strong>California Institute of the Arts</strong> (EUA) — Design</li>
+                        <li class="education-item"><strong>AV Makers</strong> — Edição de Vídeo em Premiere Pro</li>
                     </ul>
                 </div>
             </div>
@@ -1006,52 +1064,26 @@
     <section class="portfolio" id="portfolio">
         <div class="container">
             <h2 class="section-title gradient-text">Portfolio Completo</h2>
-            <p class="section-subtitle">Mais de 50 projetos organizados por categoria</p>
+            <p class="section-subtitle">Mais de 40 projetos organizados por categoria</p>
 
+            <!-- DESTAQUES E SHOW REELS -->
             <div class="category" id="showreels">
                 <div class="category-header">
-                    <h3 class="category-title">🎞 Show Reels e Destaques</h3>
+                    <h3 class="category-title">🎞 Destaques e Show Reels</h3>
                     <p class="category-description">Evolução temporal do portfólio - demonstração de expertise e versatilidade</p>
                 </div>
                 <div class="projects-grid">
                     <div class="project-card">
                         <div class="video-container" data-video-id="AuY2VzMv104">
-                            <img src="https://img.youtube.com/vi/AuY2VzMv104/maxresdefault.jpg" class="video-thumbnail" alt="Show Reel 2023">
+                            <img src="https://img.youtube.com/vi/AuY2VzMv104/maxresdefault.jpg" class="video-thumbnail" alt="Show Reel 1">
                             <div class="play-button"></div>
                         </div>
                         <div class="project-info">
-                            <div class="project-title">Show Reel 2023</div>
+                            <div class="project-title">Show Reel 1</div>
                             <span class="project-category">Destaque Principal</span>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="video-container" data-video-id="wPHsaIhewPU">
-                            <img src="https://img.youtube.com/vi/wPHsaIhewPU/maxresdefault.jpg" class="video-thumbnail" alt="Show Reel 2022">
-                            <div class="play-button"></div>
-                        </div>
-                        <div class="project-info">
-                            <div class="project-title">Show Reel 2022</div>
-                            <span class="project-category">Portfolio Anterior</span>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="video-container" data-video-id="El9jjjSzWME">
-                            <img src="https://img.youtube.com/vi/El9jjjSzWME/maxresdefault.jpg" class="video-thumbnail" alt="VEO 3">
-                            <div class="play-button"></div>
-                        </div>
-                        <div class="project-info">
-                            <div class="project-title">Especialização VEO 3</div>
-                            <span class="project-category">Tecnologia IA</span>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="video-container" data-video-id="CqDADaKq1As">
-                            <img src="https://img.youtube.com/vi/CqDADaKq1As/maxresdefault.jpg" class="video-thumbnail" alt="Compilado 2025">
-                            <div class="play-button"></div>
-                        </div>
-                        <div class="project-info">
-                            <div class="project-title">Compilado 2025 de Edições</div>
-                            <span class="project-category">Edição de Vídeo</span>
+                            <div class="project-tags">
+                                <span class="tag-motion">Motion Design</span>
+                            </div>
                         </div>
                     </div>
                     <div class="project-card">
@@ -1062,89 +1094,151 @@
                         <div class="project-info">
                             <div class="project-title">Inbramerc - Multi-plataforma</div>
                             <span class="project-category">Instagram & YouTube</span>
+                            <div class="project-tags">
+                                <span class="tag-motion">Motion Design</span>
+                                <span class="tag-edicao">Edição de Vídeo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="video-container" data-video-id="CKC-dDqvfaQ">
+                            <img src="https://img.youtube.com/vi/CKC-dDqvfaQ/maxresdefault.jpg" class="video-thumbnail" alt="Produtoras">
+                            <div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Compilado de Trabalhos com Produtoras de Vídeo</div>
+                            <span class="project-category">Parceria B2B</span>
+                            <div class="project-tags">
+                                <span class="tag-motion">Motion Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="video-container" data-video-id="CqDADaKq1As">
+                            <img src="https://img.youtube.com/vi/CqDADaKq1As/maxresdefault.jpg" class="video-thumbnail" alt="Compilado 2025">
+                            <div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Compilado 2025 de Edições</div>
+                            <span class="project-category">Edição de Vídeo</span>
+                            <div class="project-tags">
+                                <span class="tag-edicao">Edição de Vídeo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="video-container" data-video-id="wPHsaIhewPU">
+                            <img src="https://img.youtube.com/vi/wPHsaIhewPU/maxresdefault.jpg" class="video-thumbnail" alt="Show Reel 2">
+                            <div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Show Reel 2</div>
+                            <span class="project-category">Portfolio Anterior</span>
+                            <div class="project-tags">
+                                <span class="tag-motion">Motion Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="video-container" data-video-id="El9jjjSzWME">
+                            <img src="https://img.youtube.com/vi/El9jjjSzWME/maxresdefault.jpg" class="video-thumbnail" alt="VEO 3">
+                            <div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Especialização VEO 3</div>
+                            <span class="project-category">Tecnologia IA</span>
+                            <div class="project-tags">
+                                <span class="tag-edicao">Edição com IA</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- VINHETAS -->
             <div class="category" id="vinhetas">
                 <div class="category-header">
                     <h3 class="category-title">🎨 Vinhetas e Animações de Logo</h3>
                     <p class="category-description">Transforme sua marca em movimento - animações que fixam identidade visual</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card"><div class="video-container" data-video-id="OJlreXGD8RQ"><img src="https://img.youtube.com/vi/OJlreXGD8RQ/maxresdefault.jpg" class="video-thumbnail" alt="Vinhetas"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Vinhetas Compilado</div><span class="project-category">Vinhetas</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="3jonZzh1nFw"><img src="https://img.youtube.com/vi/3jonZzh1nFw/maxresdefault.jpg" class="video-thumbnail" alt="Logo"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Animações de Logo</div><span class="project-category">Branding</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="wOKR6yE6B7c"><img src="https://img.youtube.com/vi/wOKR6yE6B7c/maxresdefault.jpg" class="video-thumbnail" alt="Referências"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Catálogo Referências Mundiais</div><span class="project-category">Inspirações</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="x2o-YsSAs_4"><img src="https://img.youtube.com/vi/x2o-YsSAs_4/maxresdefault.jpg" class="video-thumbnail" alt="Time to Speak"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Case: Time to Speak</div><span class="project-category">Vinheta</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="fhDEWQj50mM"><img src="https://img.youtube.com/vi/fhDEWQj50mM/maxresdefault.jpg" class="video-thumbnail" alt="Tax Summit"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Case: Tax Summit</div><span class="project-category">Vinheta</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="iTmO2QIOHfE"><img src="https://img.youtube.com/vi/iTmO2QIOHfE/maxresdefault.jpg" class="video-thumbnail" alt="Maratona"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Case: Maratona</div><span class="project-category">Vinheta</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="AkbHGNirMLg"><img src="https://img.youtube.com/vi/AkbHGNirMLg/maxresdefault.jpg" class="video-thumbnail" alt="Inbrasc"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Case: Inbrasc</div><span class="project-category">Vinheta</span></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="OJlreXGD8RQ"><img src="https://img.youtube.com/vi/OJlreXGD8RQ/maxresdefault.jpg" class="video-thumbnail" alt="Vinhetas"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Vinhetas Compilado</div><span class="project-category">Vinhetas</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="3jonZzh1nFw"><img src="https://img.youtube.com/vi/3jonZzh1nFw/maxresdefault.jpg" class="video-thumbnail" alt="Logo"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Animações de Logo</div><span class="project-category">Branding</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="wOKR6yE6B7c"><img src="https://img.youtube.com/vi/wOKR6yE6B7c/maxresdefault.jpg" class="video-thumbnail" alt="Referências"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Catálogo Referências Mundiais</div><span class="project-category">Inspirações</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="x2o-YsSAs_4"><img src="https://img.youtube.com/vi/x2o-YsSAs_4/maxresdefault.jpg" class="video-thumbnail" alt="Time to Speak"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Case: Time to Speak</div><span class="project-category">Vinheta</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="fhDEWQj50mM"><img src="https://img.youtube.com/vi/fhDEWQj50mM/maxresdefault.jpg" class="video-thumbnail" alt="Tax Summit"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Case: Tax Summit</div><span class="project-category">Vinheta</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="iTmO2QIOHfE"><img src="https://img.youtube.com/vi/iTmO2QIOHfE/maxresdefault.jpg" class="video-thumbnail" alt="Maratona"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Case: Maratona</div><span class="project-category">Vinheta</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="AkbHGNirMLg"><img src="https://img.youtube.com/vi/AkbHGNirMLg/maxresdefault.jpg" class="video-thumbnail" alt="Inbrasc"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Case: Inbrasc</div><span class="project-category">Vinheta</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
                 </div>
             </div>
 
+            <!-- REDES SOCIAIS -->
             <div class="category" id="redes-sociais">
                 <div class="category-header">
                     <h3 class="category-title">📱 Conteúdo para Redes Sociais</h3>
                     <p class="category-description">Conteúdo que engaja e converte - Stories, Reels e TikToks otimizados</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card"><div class="video-container" data-video-id="QmCFB-3lsHU"><img src="https://img.youtube.com/vi/QmCFB-3lsHU/maxresdefault.jpg" class="video-thumbnail" alt="Social"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Redes Sociais - Compilado</div><span class="project-category">Social Media</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="S_RHIyx9xc4"><img src="https://img.youtube.com/vi/S_RHIyx9xc4/maxresdefault.jpg" class="video-thumbnail" alt="Sophie"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Canal Influencer Sophie - EUA</div><span class="project-category">Internacional</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="rFfs5uD8rA4"><img src="https://img.youtube.com/vi/rFfs5uD8rA4/maxresdefault.jpg" class="video-thumbnail" alt="App"><div class="play-button"></div></div><div class="project-info"><div class="project-title">App Rede Ideal</div><span class="project-category">App Marketing</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="g4bJucOuxwY"><img src="https://img.youtube.com/vi/g4bJucOuxwY/maxresdefault.jpg" class="video-thumbnail" alt="Impro"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Reels Corporativo - Impro Energia</div><span class="project-category">B2B Social</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="2FWSoCPw38U"><img src="https://img.youtube.com/vi/2FWSoCPw38U/maxresdefault.jpg" class="video-thumbnail" alt="Stories"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Stories - Clínica Vinciarrelli</div><span class="project-category">Saúde</span></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="QmCFB-3lsHU"><img src="https://img.youtube.com/vi/QmCFB-3lsHU/maxresdefault.jpg" class="video-thumbnail" alt="Social"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Redes Sociais - Compilado</div><span class="project-category">Social Media</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="g4bJucOuxwY"><img src="https://img.youtube.com/vi/g4bJucOuxwY/maxresdefault.jpg" class="video-thumbnail" alt="Impro"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Reels Corporativo - Impro Energia</div><span class="project-category">B2B Social</span><div class="project-tags"><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="S_RHIyx9xc4"><img src="https://img.youtube.com/vi/S_RHIyx9xc4/maxresdefault.jpg" class="video-thumbnail" alt="Sophie"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Canal Influencer Sophie - EUA</div><span class="project-category">Internacional</span><div class="project-tags"><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="rFfs5uD8rA4"><img src="https://img.youtube.com/vi/rFfs5uD8rA4/maxresdefault.jpg" class="video-thumbnail" alt="App"><div class="play-button"></div></div><div class="project-info"><div class="project-title">App Rede Ideal</div><span class="project-category">App Marketing</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="2FWSoCPw38U"><img src="https://img.youtube.com/vi/2FWSoCPw38U/maxresdefault.jpg" class="video-thumbnail" alt="Stories"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Stories - Clínica Vinciarrelli</div><span class="project-category">Saúde</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
                 </div>
             </div>
 
+            <!-- COMERCIAIS -->
             <div class="category" id="comerciais">
                 <div class="category-header">
                     <h3 class="category-title">📺 Comerciais e Anúncios</h3>
                     <p class="category-description">Anúncios que geram resultados mensuráveis - do conceito à conversão</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card"><div class="video-container" data-video-id="SSc7QVafEAE"><img src="https://img.youtube.com/vi/SSc7QVafEAE/maxresdefault.jpg" class="video-thumbnail" alt="Impro Solar"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Institucional Impro Solar</div><span class="project-category">Instagram/TikTok</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="iQvd_v6F2uU"><img src="https://img.youtube.com/vi/iQvd_v6F2uU/maxresdefault.jpg" class="video-thumbnail" alt="meupc"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Anúncio YouTube - meupc.net</div><span class="project-category">YouTube Ads</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="yok-tDco8qA"><img src="https://img.youtube.com/vi/yok-tDco8qA/maxresdefault.jpg" class="video-thumbnail" alt="Ads"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Coletânea de Ads Recentes</div><span class="project-category">Diversos Setores</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="0T4LQQ-hG3U"><img src="https://img.youtube.com/vi/0T4LQQ-hG3U/maxresdefault.jpg" class="video-thumbnail" alt="SS White"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Institucional SS White</div><span class="project-category">B2B</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="LMxyFm78DVg"><img src="https://img.youtube.com/vi/LMxyFm78DVg/maxresdefault.jpg" class="video-thumbnail" alt="Black Friday"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Black Friday - Filipe Flop</div><span class="project-category">E-commerce</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="WrjMvoOcGcg"><img src="https://img.youtube.com/vi/WrjMvoOcGcg/maxresdefault.jpg" class="video-thumbnail" alt="Moda"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Anúncio - Moda</div><span class="project-category">Fashion</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="LhEpSLclyfo"><img src="https://img.youtube.com/vi/LhEpSLclyfo/maxresdefault.jpg" class="video-thumbnail" alt="Impro ES"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Institucional Impro Solar - ES</div><span class="project-category">Energia Solar</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="m1ifZHvQPYA"><img src="https://img.youtube.com/vi/m1ifZHvQPYA/maxresdefault.jpg" class="video-thumbnail" alt="Político"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Chapa 2 - Dr. Marcelo</div><span class="project-category">Político</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="W8CO2UWfGp8"><img src="https://img.youtube.com/vi/W8CO2UWfGp8/maxresdefault.jpg" class="video-thumbnail" alt="Buffet"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Buffet - Estilo Televisivo</div><span class="project-category">Alimentação</span></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="SSc7QVafEAE"><img src="https://img.youtube.com/vi/SSc7QVafEAE/maxresdefault.jpg" class="video-thumbnail" alt="Impro Solar"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Impro Solar - Prospecção de vendedores e representantes</div><span class="project-category">B2B</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="iQvd_v6F2uU"><img src="https://img.youtube.com/vi/iQvd_v6F2uU/maxresdefault.jpg" class="video-thumbnail" alt="meupc"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Anúncio YouTube - meupc.net</div><span class="project-category">YouTube Ads</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="0T4LQQ-hG3U"><img src="https://img.youtube.com/vi/0T4LQQ-hG3U/maxresdefault.jpg" class="video-thumbnail" alt="SS White"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Institucional SS White</div><span class="project-category">B2B</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="LMxyFm78DVg"><img src="https://img.youtube.com/vi/LMxyFm78DVg/maxresdefault.jpg" class="video-thumbnail" alt="Black Friday"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Black Friday - Filipe Flop</div><span class="project-category">E-commerce</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="W8CO2UWfGp8"><img src="https://img.youtube.com/vi/W8CO2UWfGp8/maxresdefault.jpg" class="video-thumbnail" alt="Buffet"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Buffet - Estilo Televisivo</div><span class="project-category">Alimentação</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="yok-tDco8qA"><img src="https://img.youtube.com/vi/yok-tDco8qA/maxresdefault.jpg" class="video-thumbnail" alt="Ads"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Coletânea de Ads Recentes</div><span class="project-category">Diversos Setores</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="WrjMvoOcGcg"><img src="https://img.youtube.com/vi/WrjMvoOcGcg/maxresdefault.jpg" class="video-thumbnail" alt="Moda"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Anúncio - Moda</div><span class="project-category">Fashion</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="LhEpSLclyfo"><img src="https://img.youtube.com/vi/LhEpSLclyfo/maxresdefault.jpg" class="video-thumbnail" alt="Impro ES"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Institucional Impro Solar - ES</div><span class="project-category">Energia Solar</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="m1ifZHvQPYA"><img src="https://img.youtube.com/vi/m1ifZHvQPYA/maxresdefault.jpg" class="video-thumbnail" alt="Político"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Chapa 2 - Dr. Marcelo</div><span class="project-category">Político</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
                 </div>
             </div>
 
+            <!-- INSTITUCIONAIS -->
             <div class="category" id="institucionais">
                 <div class="category-header">
                     <h3 class="category-title">🏢 Institucionais e Corporativos</h3>
                     <p class="category-description">Vídeos premium B2B que elevam a reputação corporativa</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card"><div class="video-container" data-video-id="UvjsIQn8_UU"><img src="https://img.youtube.com/vi/UvjsIQn8_UU/maxresdefault.jpg" class="video-thumbnail" alt="Santa Helena"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Case: Santa Helena ⭐</div><span class="project-category">Projeto Destaque</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="i8rolVae3bc"><img src="https://img.youtube.com/vi/i8rolVae3bc/maxresdefault.jpg" class="video-thumbnail" alt="Zangari"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Vídeo Institucional - Zangari</div><span class="project-category">Corporativo</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="CKC-dDqvfaQ"><img src="https://img.youtube.com/vi/CKC-dDqvfaQ/maxresdefault.jpg" class="video-thumbnail" alt="Produtoras"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Trabalhos com Produtoras</div><span class="project-category">Parceria B2B</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="F31UuaJmJ10"><img src="https://img.youtube.com/vi/F31UuaJmJ10/maxresdefault.jpg" class="video-thumbnail" alt="Helbor"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Helbor - Setor Imobiliário</div><span class="project-category">Imóveis</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="2gt-tcyn0qM"><img src="https://img.youtube.com/vi/2gt-tcyn0qM/maxresdefault.jpg" class="video-thumbnail" alt="Marcopolo"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Frota Marcopolo</div><span class="project-category">Transporte</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="aQqZp5vEv-I"><img src="https://img.youtube.com/vi/aQqZp5vEv-I/maxresdefault.jpg" class="video-thumbnail" alt="CRO"><div class="play-button"></div></div><div class="project-info"><div class="project-title">CRO/GO - Eleição</div><span class="project-category">Institucional</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="wP9PbKijr34"><img src="https://img.youtube.com/vi/wP9PbKijr34/maxresdefault.jpg" class="video-thumbnail" alt="Núcleo Solar"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Núcleo Solar</div><span class="project-category">Energia Limpa</span></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="UvjsIQn8_UU"><img src="https://img.youtube.com/vi/UvjsIQn8_UU/maxresdefault.jpg" class="video-thumbnail" alt="Santa Helena"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Case: Santa Helena ⭐</div><span class="project-category">Projeto Destaque</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="i8rolVae3bc"><img src="https://img.youtube.com/vi/i8rolVae3bc/maxresdefault.jpg" class="video-thumbnail" alt="Zangari"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Vídeo Institucional - Zangari</div><span class="project-category">Corporativo</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="SSc7QVafEAE"><img src="https://img.youtube.com/vi/SSc7QVafEAE/maxresdefault.jpg" class="video-thumbnail" alt="Impro Prospeccao"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Impro Solar - Prospecção de vendedores e representantes</div><span class="project-category">B2B</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="LhEpSLclyfo"><img src="https://img.youtube.com/vi/LhEpSLclyfo/maxresdefault.jpg" class="video-thumbnail" alt="Impro ES 2"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Institucional Impro Solar - ES</div><span class="project-category">Energia Solar</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="F31UuaJmJ10"><img src="https://img.youtube.com/vi/F31UuaJmJ10/maxresdefault.jpg" class="video-thumbnail" alt="Helbor"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Helbor - Setor Imobiliário</div><span class="project-category">Imóveis</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="2gt-tcyn0qM"><img src="https://img.youtube.com/vi/2gt-tcyn0qM/maxresdefault.jpg" class="video-thumbnail" alt="Marcopolo"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Frota Marcopolo</div><span class="project-category">Transporte</span><div class="project-tags"><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="aQqZp5vEv-I"><img src="https://img.youtube.com/vi/aQqZp5vEv-I/maxresdefault.jpg" class="video-thumbnail" alt="CRO"><div class="play-button"></div></div><div class="project-info"><div class="project-title">CRO/GO - Eleição</div><span class="project-category">Institucional</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="wP9PbKijr34"><img src="https://img.youtube.com/vi/wP9PbKijr34/maxresdefault.jpg" class="video-thumbnail" alt="Núcleo Solar"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Núcleo Solar</div><span class="project-category">Energia Limpa</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
                 </div>
             </div>
 
+            <!-- MÉDICO E EDUCACIONAL -->
             <div class="category" id="medico">
                 <div class="category-header">
                     <h3 class="category-title">🩺 Setor Médico e Educacional</h3>
                     <p class="category-description">Especialização em comunicação técnica e educacional</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card"><div class="video-container" data-video-id="wzXT_rLcBVI"><img src="https://img.youtube.com/vi/wzXT_rLcBVI/maxresdefault.jpg" class="video-thumbnail" alt="TCC"><div class="play-button"></div></div><div class="project-info"><div class="project-title">TCC Unifesp</div><span class="project-category">Acadêmico</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="sGZJih7Eqpg"><img src="https://img.youtube.com/vi/sGZJih7Eqpg/maxresdefault.jpg" class="video-thumbnail" alt="Unifesp"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Case: Vídeo Médico - Unifesp</div><span class="project-category">Medicina</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="JE4NteXIukw"><img src="https://img.youtube.com/vi/JE4NteXIukw/maxresdefault.jpg" class="video-thumbnail" alt="Curso"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Curso Digital - Exercícios Físicos</div><span class="project-category">Educação Online</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="KO61ttP2eHw"><img src="https://img.youtube.com/vi/KO61ttP2eHw/maxresdefault.jpg" class="video-thumbnail" alt="Concursos"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Estudo para Concursos - Área Jurídica</div><span class="project-category">Direito</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="5MREb2U1ftQ"><img src="https://img.youtube.com/vi/5MREb2U1ftQ/maxresdefault.jpg" class="video-thumbnail" alt="Alta"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Alta Diagnóstico</div><span class="project-category">Saúde</span></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="sGZJih7Eqpg"><img src="https://img.youtube.com/vi/sGZJih7Eqpg/maxresdefault.jpg" class="video-thumbnail" alt="Unifesp"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Case: Vídeo Médico - Unifesp</div><span class="project-category">Medicina</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="JE4NteXIukw"><img src="https://img.youtube.com/vi/JE4NteXIukw/maxresdefault.jpg" class="video-thumbnail" alt="Curso"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Curso Digital - Exercícios Físicos</div><span class="project-category">Educação Online</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="KO61ttP2eHw"><img src="https://img.youtube.com/vi/KO61ttP2eHw/maxresdefault.jpg" class="video-thumbnail" alt="Concursos"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Estudo para Concursos - Área Jurídica</div><span class="project-category">Direito</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="5MREb2U1ftQ"><img src="https://img.youtube.com/vi/5MREb2U1ftQ/maxresdefault.jpg" class="video-thumbnail" alt="Alta"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Alta Diagnóstico</div><span class="project-category">Saúde</span><div class="project-tags"><span class="tag-motion">Motion Design</span><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
                 </div>
             </div>
 
+            <!-- FEEDBACK -->
             <div class="category" id="feedback">
                 <div class="category-header">
                     <h3 class="category-title">💬 Feedback dos Nossos Clientes</h3>
@@ -1155,25 +1249,27 @@
                 </div>
             </div>
 
+            <!-- EVENTOS -->
             <div class="category" id="eventos">
                 <div class="category-header">
                     <h3 class="category-title">🎤 Eventos e Entretenimento</h3>
                     <p class="category-description">Cobertura profissional e edição dinâmica</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card"><div class="video-container" data-video-id="iNtd5619MSc"><img src="https://img.youtube.com/vi/iNtd5619MSc/maxresdefault.jpg" class="video-thumbnail" alt="Educa SEO"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Evento - Educa SEO</div><span class="project-category">Marketing Digital</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="80jS0gODizg"><img src="https://img.youtube.com/vi/80jS0gODizg/maxresdefault.jpg" class="video-thumbnail" alt="Festival"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Festival de Música Sertaneja</div><span class="project-category">Entretenimento</span></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="iNtd5619MSc"><img src="https://img.youtube.com/vi/iNtd5619MSc/maxresdefault.jpg" class="video-thumbnail" alt="Educa SEO"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Evento - Educa SEO</div><span class="project-category">Marketing Digital</span><div class="project-tags"><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="80jS0gODizg"><img src="https://img.youtube.com/vi/80jS0gODizg/maxresdefault.jpg" class="video-thumbnail" alt="Festival"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Festival de Música Sertaneja</div><span class="project-category">Entretenimento</span><div class="project-tags"><span class="tag-edicao">Edição de Vídeo</span></div></div></div>
                 </div>
             </div>
 
+            <!-- OUTROS -->
             <div class="category" id="outros">
                 <div class="category-header">
                     <h3 class="category-title">🎶 Música, Pet & Especialidades</h3>
                     <p class="category-description">Projetos especializados em nichos diversos</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card"><div class="video-container" data-video-id="9RFmPc8zvjY"><img src="https://img.youtube.com/vi/9RFmPc8zvjY/maxresdefault.jpg" class="video-thumbnail" alt="Musical"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Vídeo Musical Infantil - Plano 6</div><span class="project-category">Música</span></div></div>
-                    <div class="project-card"><div class="video-container" data-video-id="1hqe2wtz7Pg"><img src="https://img.youtube.com/vi/1hqe2wtz7Pg/maxresdefault.jpg" class="video-thumbnail" alt="Pet"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Campanha Vacinação - Pet Shop</div><span class="project-category">Pet</span></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="9RFmPc8zvjY"><img src="https://img.youtube.com/vi/9RFmPc8zvjY/maxresdefault.jpg" class="video-thumbnail" alt="Musical"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Vídeo Musical Infantil - Plano 6</div><span class="project-category">Música</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
+                    <div class="project-card"><div class="video-container" data-video-id="1hqe2wtz7Pg"><img src="https://img.youtube.com/vi/1hqe2wtz7Pg/maxresdefault.jpg" class="video-thumbnail" alt="Pet"><div class="play-button"></div></div><div class="project-info"><div class="project-title">Campanha Vacinação - Pet Shop</div><span class="project-category">Pet</span><div class="project-tags"><span class="tag-motion">Motion Design</span></div></div></div>
                 </div>
             </div>
 
@@ -1263,19 +1359,22 @@
             y: -200, rotation: -180, scale: 0.8
         });
         
+        // SCROLLTRIGGER HORIZONTAL NO MOBILE - MAIS LENTO, COMPLETO E COM MARGEM
         if (window.innerWidth <= 768) {
             const videoElement = document.querySelector('.platform-video video');
             
             gsap.fromTo(videoElement,
-                { x: '50%', scale: 1.5 },
+                { x: '100%', scale: 2.0 },
                 {
-                    x: '-50%',
+                    x: '-100%',
+                    scale: 1.8,
                     scrollTrigger: {
                         trigger: '.video-element',
-                        start: 'top top',
-                        end: 'bottom top',
-                        scrub: 1,
+                        start: 'top 200px',
+                        end: 'bottom -50%',
+                        scrub: 3,
                         pin: true,
+                        pinSpacing: true,
                         anticipatePin: 1
                     },
                     ease: 'none'
@@ -1283,24 +1382,59 @@
             );
         }
         
-        gsap.fromTo('.photo-name-wrapper', { opacity: 0, scale: 0, rotation: -90 }, {
-            scrollTrigger: { trigger: '.photo-element', start: 'top 75%', end: 'top 30%', scrub: 1 },
-            opacity: 1, scale: 1, rotation: 0
-        });
-        
-        gsap.fromTo('.badges-element', { opacity: 0, y: 60 }, {
-            scrollTrigger: { trigger: '.badges-element', start: 'top 75%', end: 'top 35%', scrub: 1 },
-            opacity: 1, y: -30
-        });
-        
-        gsap.fromTo('.badge', { opacity: 0, scale: 0, rotation: 90 }, {
-            scrollTrigger: { trigger: '.badges-element', start: 'top 70%', end: 'top 35%', scrub: 1 },
-            opacity: 1, scale: 1, rotation: 0, stagger: 0.1
-        });
+        // FOTO E NOME - PARA NO TOPO E FICA FIXA
+        gsap.fromTo('.photo-name-wrapper', 
+            { opacity: 0, scale: 0, rotation: -90 }, 
+            {
+                scrollTrigger: { 
+                    trigger: '.photo-element', 
+                    start: 'top 20%',
+                    end: '+=800',
+                    scrub: 1,
+                    pin: '.photo-name-wrapper',
+                    pinSpacing: true,
+                },
+                opacity: 1, 
+                scale: 1, 
+                rotation: 0
+            }
+        );
+
+        // BADGES APARECEM ABAIXO DA FOTO - MAIS PRÓXIMOS E MAIS CEDO
+        gsap.fromTo('.badges-element', 
+            { opacity: 0, y: 80 }, 
+            {
+                scrollTrigger: { 
+                    trigger: '.badges-element', 
+                    start: 'top 95%',
+                    end: 'top 50%',
+                    scrub: 1
+                },
+                opacity: 1, 
+                y: 0
+            }
+        );
+
+        // BADGES INDIVIDUAIS - APARECEM MAIS CEDO
+        gsap.fromTo('.badge', 
+            { opacity: 0, scale: 0, rotation: 90 }, 
+            {
+                scrollTrigger: { 
+                    trigger: '.badges-element', 
+                    start: 'top 92%', 
+                    end: 'top 50%', 
+                    scrub: 1 
+                },
+                opacity: 1, 
+                scale: 1, 
+                rotation: 0, 
+                stagger: 0.15
+            }
+        );
         
         gsap.fromTo('.stats-element', { opacity: 0, y: 100 }, {
             scrollTrigger: { trigger: '.stats-element', start: 'top 75%', end: 'top 30%', scrub: 1 },
-            opacity: 1, y: -50
+            opacity: 1, y: 0
         });
         
         gsap.fromTo('.stat-box', { opacity: 0, scale: 0, y: 80 }, {
@@ -1310,7 +1444,7 @@
         
         gsap.fromTo('.education-element', { opacity: 0, x: -150, y: 80 }, {
             scrollTrigger: { trigger: '.education-element', start: 'top 75%', end: 'top 25%', scrub: 1 },
-            opacity: 1, x: 0, y: -60
+            opacity: 1, x: 0, y: 0
         });
         
         gsap.utils.toArray('.project-card').forEach((card) => {
@@ -1362,7 +1496,7 @@
             });
         });
         
-        console.log('✅ Espaçamento desktop corrigido - Formação e Hero próximos!');
+        console.log('✅ Site final: Badges mais próximos e aparecem mais cedo!');
     </script>
 
 </body>
