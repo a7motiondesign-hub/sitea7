@@ -19,8 +19,8 @@
             --primary: #00FFE0;
             --secondary: #0066FF;
             --accent: #FF0055;
-            --highlight: #F67C13;
-            --yellow: #FFC700;
+            --highlight: #F67C13; /* Cor para o highlight do botão mobile */
+            --yellow: #FFC700; 
             --dark: #0A0A0F;
             --dark-light: #1A1A2E;
             --white: #FFFFFF;
@@ -39,6 +39,7 @@
             color: var(--white);
             overflow-x: hidden;
             cursor: none;
+            padding-top: 100px; /* Espaço para header fixo */
         }
         
         .custom-cursor {
@@ -121,26 +122,28 @@
             backdrop-filter: blur(12px);
             background: rgba(10, 10, 15, 0.95);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            /* padding removido para nav controlar */
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 2rem;
+            padding: 1rem 2rem; /* Padding original restaurado */
             max-width: 1400px;
             margin: 0 auto;
-            gap: 3rem;
+            gap: 2rem; /* Gap original */
         }
         
         .logo-container {
             display: flex;
             align-items: center;
             gap: 1rem;
+            flex-shrink: 0; 
         }
 
         .header-photo {
-            height: 70px;
+            height: 70px; /* Tamanho original restaurado */
             width: 70px;
             border-radius: 50%;
             border: 2px solid var(--primary);
@@ -148,7 +151,7 @@
         }
 
         .logo img {
-            height: 70px;
+            height: 70px; /* Tamanho original restaurado */
             transition: all 0.3s ease;
         }
         
@@ -157,6 +160,7 @@
             filter: drop-shadow(0 0 10px rgba(0, 255, 224, 0.5));
         }
         
+        /* Links originais reativados */
         .nav-links {
             display: flex;
             gap: 1.5rem;
@@ -199,7 +203,7 @@
         }
         
         .mobile-menu-button {
-            display: none;
+            display: none; /* Mantém oculto no desktop */
             font-family: 'Raleway', sans-serif;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--dark);
@@ -213,12 +217,13 @@
             animation: buttonPulse 10s ease-in-out infinite;
         }
         
+        /* Highlight do botão mobile atualizado */
         @keyframes buttonPulse {
-            0%, 90% { box-shadow: 0 0 0 rgba(246, 124, 19, 0); transform: scale(1); }
-            92% { box-shadow: 0 0 20px rgba(246, 124, 19, 0.8); transform: scale(1.05); }
-            94% { box-shadow: 0 0 30px rgba(246, 124, 19, 0.6); transform: scale(1.02); }
-            96% { box-shadow: 0 0 20px rgba(246, 124, 19, 0.8); transform: scale(1.05); }
-            100% { box-shadow: 0 0 0 rgba(246, 124, 19, 0); transform: scale(1); }
+            0%, 90% { box-shadow: 0 0 0 rgba(246, 124, 19, 0); transform: scale(1); background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--dark); }
+            92% { box-shadow: 0 0 20px rgba(246, 124, 19, 0.8); transform: scale(1.05); background: var(--highlight); color: var(--white); }
+            94% { box-shadow: 0 0 30px rgba(246, 124, 19, 0.6); transform: scale(1.02); background: var(--highlight); color: var(--white); }
+            96% { box-shadow: 0 0 20px rgba(246, 124, 19, 0.8); transform: scale(1.05); background: var(--highlight); color: var(--white); }
+            100% { box-shadow: 0 0 0 rgba(246, 124, 19, 0); transform: scale(1); background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--dark);}
         }
         
         .mobile-menu-overlay {
@@ -268,8 +273,8 @@
         }
         
         .mobile-menu-title {
-            font-family: 'Raleway', sans-serif;
-            font-size: 1.2rem;
+            font-family: 'Raleway', sans-serif; /* Mesma fonte dos badges */
+            font-size: 1.2rem; /* Ajustado para melhor leitura */
             font-weight: 700;
             color: var(--primary);
             text-transform: uppercase;
@@ -323,7 +328,7 @@
         .intro-section {
             min-height: auto;
             position: relative;
-            padding-top: 150px;
+            /* padding-top: 150px; */ /* Removido - body já tem padding */
             padding-bottom: 0.5rem;
         }
         
@@ -601,55 +606,6 @@
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(0, 255, 224, 0.4);
         }
-
-        .filters-container {
-            padding: 1rem 2rem 0;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .filter-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            justify-content: center;
-        }
-        
-        .filter-btn {
-            font-family: 'Raleway', sans-serif;
-            padding: 0.8rem 1.8rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid var(--primary);
-            color: var(--white);
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            letter-spacing: 0.5px;
-        }
-        
-        .filter-btn:hover {
-            background: var(--primary);
-            color: var(--dark);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0, 255, 224, 0.3);
-        }
-        
-        .filter-btn.active {
-            background: var(--primary);
-            color: var(--dark);
-            font-weight: 700;
-            box-shadow: 0 0 25px rgba(0, 255, 224, 0.5);
-        }
-
-        .project-card.hidden {
-            display: none;
-        }
         
         .portfolio {
             padding: 3rem 2rem;
@@ -717,7 +673,7 @@
             perspective: 2000px;
             position: relative;
             cursor: pointer;
-            visibility: hidden;
+            visibility: hidden; /* Controlado pelo GSAP */
         }
 
         .project-card::before {
@@ -732,17 +688,12 @@
             transition: opacity 0.3s;
             pointer-events: none;
             z-index: 1;
+            opacity: var(--before-opacity, 0); 
         }
 
-        .project-card:hover::before {
-            opacity: 1;
-        }
+        .project-card:hover::before {}
 
-        .project-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 20px 60px rgba(0, 255, 224, 0.3);
-            transform: translateY(-10px) rotateX(2deg);
-        }
+        .project-card:hover {}
 
         .project-title, .card-subtitle, .project-tags, .project-keywords {
             opacity: 0;
@@ -937,13 +888,34 @@
             bottom: 30%;
             left: -5%;
         }
+
+        .card-highlight {
+            transition: box-shadow 0.3s ease-in-out !important;
+            box-shadow: 0 0 30px 10px rgba(0, 255, 224, 0.5) !important;
+        }
         
         @media (max-width: 1024px) {
             .nav-links {
-                gap: 1rem;
-                font-size: 0.85rem;
+                 /* Mantém escondido no tablet também */
+                display: none;
             }
-            
+             .mobile-menu-button {
+                 /* Mostra o botão mobile no tablet */
+                display: block; 
+            }
+             body {
+                padding-top: 80px; /* Ajusta padding para header menor */
+            }
+            nav {
+                 padding: 1rem 1.5rem;
+            }
+            .header-photo, .logo img {
+                 height: 60px;
+                 width: auto;
+            }
+            .header-filters {
+                 display: none; /* Esconde filtros do header no tablet */
+            }
             .platform-video video {
                 max-width: 90%;
             }
@@ -952,6 +924,7 @@
         @media (max-width: 768px) {
             body {
                 cursor: auto;
+                padding-top: 80px; /* Mantém padding */
             }
             
             .custom-cursor,
@@ -961,7 +934,7 @@
             
             nav {
                 padding: 1rem;
-                gap: 1.5rem;
+                gap: 1rem; /* Gap menor no mobile */
             }
             
             .logo img {
@@ -978,7 +951,10 @@
             }
             
             .mobile-menu-button {
-                display: block;
+                display: block; /* Garante que está visível */
+            }
+             .header-filters {
+                 display: none; /* Garante que está escondido */
             }
             
             .projects-grid {
@@ -1035,31 +1011,24 @@
                 margin-top: 1rem;
                 margin-bottom: 2rem;
             }
-
-            .filter-buttons {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .filter-btn {
-                width: 100%;
-                text-align: center;
-            }
             
             .project-card:hover {
-                transform: translateY(0);
-                 box-shadow: none;
+                transform: none; 
+                box-shadow: none; 
+            }
+            .project-card:hover::before {
+                opacity: 0;
             }
 
             .project-card.card-touched {
-                transform: scale(1.03);
+                transform: scale(1.03); 
                 border-color: var(--primary);
-                box-shadow: 0 15px 30px rgba(0, 255, 224, 0.25);
-                transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+                box-shadow: 0 15px 30px rgba(0, 255, 224, 0.25); 
+                transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
             }
             
             .project-card.card-touched::before {
-                opacity: 1;
+                 opacity: 1; 
             }
         }
     </style>
@@ -1086,6 +1055,7 @@
                 </a>
                 <img src="https://raw.githubusercontent.com/a7motiondesign-hub/sitea7/main/cartoon.png" alt="Alexis Jr." class="header-photo">
             </div>
+            <!-- Links originais restaurados para Desktop -->
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#panorama-compilados">Compilados</a></li>
@@ -1095,6 +1065,7 @@
                 <li><a href="#institucionais">Institucionais</a></li>
                 <li><a href="#medico">Médico/Educacional</a></li>
             </ul>
+             <!-- Botão Mobile continua aqui -->
             <button class="mobile-menu-button" id="mobileMenuButton">
                 Procure aqui por tipo de vídeo ▼
             </button>
@@ -1202,14 +1173,8 @@
         </div>
     </section>
 
-    <div class="filters-container container">
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="todos">Todos os Projetos</button>
-            <button class="filter-btn" data-filter="roteirizacao">Roteirização</button>
-            <button class="filter-btn" data-filter="motion-design">Motion Design</button>
-            <button class="filter-btn" data-filter="edicao-video">Edição de Vídeo</button>
-        </div>
-    </div>
+    <!-- Seção de Filtros REMOVIDA -->
+    <!-- <div class="filters-container container"> ... </div> -->
 
     <section class="portfolio" id="portfolio">
         <div class="container">
@@ -1223,7 +1188,7 @@
                 </div>
                 <div class="projects-grid">
                     
-                    <div class="project-card" data-tags="roteirizacao edicao-video motion-design">
+                    <div class="project-card" id="edicoes-profissionais-alexis" data-tags="roteirizacao edicao-video motion-design">
                         <div class="video-container" data-video-id="CqDADaKq1As">
                             <img src="https://img.youtube.com/vi/CqDADaKq1As/maxresdefault.jpg" class="video-thumbnail" alt="Compilado 2025">
                             <div class="play-button"></div>
@@ -1241,7 +1206,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                    <div class="project-card" id="panorama-geral-todos-tipos" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="HLN4Tfhy5u8">
                             <img src="https://img.youtube.com/vi/HLN4Tfhy5u8/maxresdefault.jpg" class="video-thumbnail" alt="Panorama Geral">
                             <div class="play-button"></div>
@@ -1259,7 +1224,7 @@
                         </div>
                     </div>
                     
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                    <div class="project-card" id="portfolio-premiado-transformacao" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="AuY2VzMv104">
                             <img src="https://img.youtube.com/vi/AuY2VzMv104/maxresdefault.jpg" class="video-thumbnail" alt="Show Reel 1">
                             <div class="play-button"></div>
@@ -1277,7 +1242,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                    <div class="project-card" id="retrospectiva-2022-validados" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="wPHsaIhewPU">
                             <img src="https://img.youtube.com/vi/wPHsaIhewPU/maxresdefault.jpg" class="video-thumbnail" alt="Show Reel 2">
                             <div class="play-button"></div>
@@ -1295,7 +1260,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <div class="project-card" id="catalogo-tendencias-internacionais" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="wOKR6yE6B7c">
                             <img src="https://img.youtube.com/vi/wOKR6yE6B7c/maxresdefault.jpg" class="video-thumbnail" alt="Referências"><div class="play-button"></div>
                         </div>
@@ -1311,7 +1276,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video ia">
+                    <div class="project-card" id="veo-3-futuro-producao" data-tags="roteirizacao motion-design edicao-video ia">
                         <div class="video-container" data-video-id="El9jjjSzWME">
                             <img src="https://img.youtube.com/vi/El9jjjSzWME/maxresdefault.jpg" class="video-thumbnail" alt="VEO 3">
                             <div class="play-button"></div>
@@ -1338,7 +1303,7 @@
                     <p class="category-description">Estratégias para YouTube, Instagram, TikTok e mais. Conteúdo que engaja e converte.</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                    <div class="project-card" id="case-inbramerc-multiplataforma" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="_b3h5PUtmIg">
                             <img src="https://img.youtube.com/vi/_b3h5PUtmIg/maxresdefault.jpg" class="video-thumbnail" alt="Inbramerc">
                             <div class="play-button"></div>
@@ -1356,7 +1321,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                    <div class="project-card" id="stories-reels-param-scroll" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="QmCFB-3lsHU">
                             <img src="https://img.youtube.com/vi/QmCFB-3lsHU/maxresdefault.jpg" class="video-thumbnail" alt="Social"><div class="play-button"></div>
                         </div>
@@ -1373,7 +1338,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao edicao-video">
+                    <div class="project-card" id="conteudo-social-gera-leads" data-tags="roteirizacao edicao-video">
                         <div class="video-container" data-video-id="g4bJucOuxwY">
                             <img src="https://img.youtube.com/vi/g4bJucOuxwY/maxresdefault.jpg" class="video-thumbnail" alt="Impro"><div class="play-button"></div>
                         </div>
@@ -1389,7 +1354,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao edicao-video">
+                    <div class="project-card" id="canal-internacional-aumento-views" data-tags="roteirizacao edicao-video">
                         <div class="video-container" data-video-id="S_RHIyx9xc4">
                             <img src="https://img.youtube.com/vi/S_RHIyx9xc4/maxresdefault.jpg" class="video-thumbnail" alt="Sophie"><div class="play-button"></div>
                         </div>
@@ -1405,7 +1370,24 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                     <!-- Novo Card Chá -->
+                     <div class="project-card" id="edicao-nicho-canal-cha" data-tags="roteirizacao edicao-video">
+                        <div class="video-container" data-video-id="acuG0daF4Iw">
+                            <img src="https://img.youtube.com/vi/acuG0daF4Iw/maxresdefault.jpg" class="video-thumbnail" alt="Canal Chá com Conteúdo"><div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Edição Para Nicho: Sucesso do Canal Chá com Conteúdo</div>
+                            <div class="card-subtitle">O que fiz:</div>
+                            <div class="project-tags">
+                                <span class="tag-base tag-roteirizacao">Roteirização</span>
+                                <span class="tag-base tag-edicao">Edição de Vídeo</span>
+                            </div>
+                            <div class="card-subtitle">Resultados:</div>
+                            <div class="project-keywords">Nicho | YouTube | Autoridade | Conteúdo Focado | Audiência Engajada</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" id="video-app-aumentou-downloads" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="rFfs5uD8rA4">
                             <img src="https://img.youtube.com/vi/rFfs5uD8rA4/maxresdefault.jpg" class="video-thumbnail" alt="App"><div class="play-button"></div>
                         </div>
@@ -1421,7 +1403,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                    <div class="project-card" id="stories-clinica-odontologica" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="2FWSoCPw38U">
                             <img src="https://img.youtube.com/vi/2FWSoCPw38U/maxresdefault.jpg" class="video-thumbnail" alt="Stories"><div class="play-button"></div>
                         </div>
@@ -1437,6 +1419,40 @@
                             <div class="project-keywords">Odontologia | Saúde | Agendamentos | Confiança | Pacientes</div>
                         </div>
                     </div>
+                     <!-- Card 40 Duplicado -->
+                    <div class="project-card" id="institucional-gigante-saude-social" data-tags="roteirizacao motion-design edicao-video">
+                        <div class="video-container" data-video-id="5MREb2U1ftQ">
+                            <img src="https://img.youtube.com/vi/5MREb2U1ftQ/maxresdefault.jpg" class="video-thumbnail" alt="Alta"><div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Vídeo Institucional Para Gigante Da Saúde</div>
+                            <div class="card-subtitle">O que fiz:</div>
+                            <div class="project-tags">
+                                <span class="tag-base tag-roteirizacao">Roteirização</span>
+                                <span class="tag-base tag-motion">Motion Design</span>
+                                <span class="tag-base tag-edicao">Edição de Vídeo</span>
+                            </div>
+                            <div class="card-subtitle">Resultados:</div>
+                            <div class="project-keywords">Saúde | Grande Porte | Credibilidade | Autoridade Médica | Institucional Premium</div>
+                        </div>
+                    </div>
+                     <!-- Card 39 Duplicado -->
+                     <div class="project-card" id="curso-concurso-social" data-tags="roteirizacao motion-design edicao-video">
+                        <div class="video-container" data-video-id="KO61ttP2eHw">
+                            <img src="https://img.youtube.com/vi/KO61ttP2eHw/maxresdefault.jpg" class="video-thumbnail" alt="Concursos"><div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Curso Concurso: Conteúdo Denso Em Formato Engajante</div>
+                            <div class="card-subtitle">O que fiz:</div>
+                            <div class="project-tags">
+                                <span class="tag-base tag-roteirizacao">Roteirização</span>
+                                <span class="tag-base tag-motion">Motion Design</span>
+                                <span class="tag-base tag-edicao">Edição de Vídeo</span>
+                            </div>
+                            <div class="card-subtitle">Resultados:</div>
+                            <div class="project-keywords">Concursos | Didática | Aprovação | Jurídico | Simplificação</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1446,7 +1462,7 @@
                     <p class="category-description">Transforme sua marca em movimento - animações que fixam identidade visual</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <div class="project-card" id="15-vinhetas-fixam-marcas" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="OJlreXGD8RQ">
                             <img src="https://img.youtube.com/vi/OJlreXGD8RQ/maxresdefault.jpg" class="video-thumbnail" alt="Vinhetas"><div class="play-button"></div>
                         </div>
@@ -1461,7 +1477,7 @@
                             <div class="project-keywords">Identidade Visual | Branding | Memorável | Impacto | Primeiro Contato</div>
                         </div>
                     </div>
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <div class="project-card" id="logos-ganham-vida" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="3jonZzh1nFw">
                             <img src="https://img.youtube.com/vi/3jonZzh1nFw/maxresdefault.jpg" class="video-thumbnail" alt="Logo"><div class="play-button"></div>
                         </div>
@@ -1476,7 +1492,7 @@
                             <div class="project-keywords">Logo Animado | Branding | Atenção | Experiência Visual | Modernização</div>
                         </div>
                     </div>
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <div class="project-card" id="case-vinheta-elevou-curso" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="x2o-YsSAs_4">
                             <img src="https://img.youtube.com/vi/x2o-YsSAs_4/maxresdefault.jpg" class="video-thumbnail" alt="Time to Speak"><div class="play-button"></div>
                         </div>
@@ -1491,7 +1507,7 @@
                              <div class="project-keywords">Educação Digital | Valorização | Curso Online | Credibilidade | Branding Educacional</div>
                         </div>
                     </div>
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <div class="project-card" id="case-credibilidade-summit" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="fhDEWQj50mM">
                             <img src="https://img.youtube.com/vi/fhDEWQj50mM/maxresdefault.jpg" class="video-thumbnail" alt="Tax Summit"><div class="play-button"></div>
                         </div>
@@ -1506,7 +1522,7 @@
                             <div class="project-keywords">Corporativo | Alto Padrão | Profissionalismo | Autoridade | Premium</div>
                         </div>
                     </div>
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <div class="project-card" id="case-capturei-emocao-evento" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="iTmO2QIOHfE">
                             <img src="https://img.youtube.com/vi/iTmO2QIOHfE/maxresdefault.jpg" class="video-thumbnail" alt="Maratona"><div class="play-button"></div>
                         </div>
@@ -1521,7 +1537,7 @@
                             <div class="project-keywords">Evento | Emoção | Cobertura Ao Vivo | Storytelling | Momento Único</div>
                         </div>
                     </div>
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <div class="project-card" id="case-vinheta-b2b-profissionalismo" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="AkbHGNirMLg">
                             <img src="https://img.youtube.com/vi/AkbHGNirMLg/maxresdefault.jpg" class="video-thumbnail" alt="Inbrasc"><div class="play-button"></div>
                         </div>
@@ -1545,23 +1561,8 @@
                     <p class="category-description">Anúncios que geram resultados mensuráveis - do conceito à conversão</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card" data-tags="roteirizacao motion-design">
-                        <div class="video-container" data-video-id="1hqe2wtz7Pg">
-                            <img src="https://img.youtube.com/vi/1hqe2wtz7Pg/maxresdefault.jpg" class="video-thumbnail" alt="Pet"><div class="play-button"></div>
-                        </div>
-                        <div class="project-info">
-                            <div class="project-title">Vídeo Pet Que Engaja Tutores E Aumenta Agendamentos</div>
-                            <div class="card-subtitle">O que fiz:</div>
-                             <div class="project-tags">
-                                <span class="tag-base tag-roteirizacao">Roteirização</span>
-                                <span class="tag-base tag-motion">Motion Design</span>
-                            </div>
-                            <div class="card-subtitle">Resultados:</div>
-                            <div class="project-keywords">Pet | Saúde Animal | Tutores | Agendamentos | Cuidado</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                     <!-- 1º meupc.net -->
+                     <div class="project-card" id="youtube-ads-roi-7-dias" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="iQvd_v6F2uU">
                             <img src="https://img.youtube.com/vi/iQvd_v6F2uU/maxresdefault.jpg" class="video-thumbnail" alt="meupc"><div class="play-button"></div>
                         </div>
@@ -1577,8 +1578,43 @@
                             <div class="project-keywords">YouTube Ads | ROI | Performance | Conversão Rápida | Lucratividade</div>
                         </div>
                     </div>
-                   
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                     <!-- 2º SS White -->
+                     <div class="project-card" id="video-b2b-fecha-contratos" data-tags="roteirizacao motion-design edicao-video">
+                        <div class="video-container" data-video-id="0T4LQQ-hG3U">
+                            <img src="https://img.youtube.com/vi/0T4LQQ-hG3U/maxresdefault.jpg" class="video-thumbnail" alt="SS White"><div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Vídeo B2B Que Fecha Contratos Antes Da Reunião</div>
+                            <div class="card-subtitle">O que fiz:</div>
+                            <div class="project-tags">
+                                <span class="tag-base tag-roteirizacao">Roteirização</span>
+                                <span class="tag-base tag-motion">Motion Design</span>
+                                <span class="tag-base tag-edicao">Edição de Vídeo</span>
+                            </div>
+                            <div class="card-subtitle">Resultados:</div>
+                            <div class="project-keywords">Vendas B2B | Institucional | Credibilidade | Fechamento | Autoridade</div>
+                        </div>
+                    </div>
+                     <!-- Inbramerc (Repetido) -->
+                    <div class="project-card" id="case-inbramerc-ads" data-tags="roteirizacao motion-design edicao-video">
+                        <div class="video-container" data-video-id="_b3h5PUtmIg">
+                            <img src="https://img.youtube.com/vi/_b3h5PUtmIg/maxresdefault.jpg" class="video-thumbnail" alt="Inbramerc Ads">
+                            <div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Case Inbramerc: 1 Estratégia, 2 Plataformas, Resultados Reais</div>
+                            <div class="card-subtitle">O que fiz:</div>
+                            <div class="project-tags">
+                                <span class="tag-base tag-roteirizacao">Roteirização</span>
+                                <span class="tag-base tag-motion">Motion Design</span>
+                                <span class="tag-base tag-edicao">Edição de Vídeo</span>
+                            </div>
+                            <div class="card-subtitle">Resultados:</div>
+                            <div class="project-keywords">Multi-Canal | Estratégia Integrada | Instagram & YouTube | Alcance Multiplicado | ROI</div>
+                        </div>
+                    </div>
+                    <!-- Black Friday -->
+                    <div class="project-card" id="black-friday-40-mais-vendas" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="LMxyFm78DVg">
                             <img src="https://img.youtube.com/vi/LMxyFm78DVg/maxresdefault.jpg" class="video-thumbnail" alt="Black Friday"><div class="play-button"></div>
                         </div>
@@ -1593,8 +1629,8 @@
                             <div class="project-keywords">E-commerce | Conversão | Promoção | Vendas | Performance</div>
                         </div>
                     </div>
-
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                    <!-- Ads Compilado -->
+                    <div class="project-card" id="ads-converteram-estrategias" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="yok-tDco8qA">
                             <img src="https://img.youtube.com/vi/yok-tDco8qA/maxresdefault.jpg" class="video-thumbnail" alt="Ads"><div class="play-button"></div>
                         </div>
@@ -1610,8 +1646,8 @@
                             <div class="project-keywords">Anúncios | Performance | Conversão | ROI | Resultados</div>
                         </div>
                     </div>
-
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <!-- Moda -->
+                    <div class="project-card" id="case-fashion-scroll-carrinho" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="WrjMvoOcGcg">
                             <img src="https://img.youtube.com/vi/WrjMvoOcGcg/maxresdefault.jpg" class="video-thumbnail" alt="Moda"><div class="play-button"></div>
                         </div>
@@ -1626,6 +1662,40 @@
                             <div class="project-keywords">Moda | E-commerce | Jornada | Conversão | Lifestyle</div>
                         </div>
                     </div>
+                     <!-- Vídeo Recrutamento -->
+                    <div class="project-card" id="video-recrutamento-aumentou-leads" data-tags="roteirizacao motion-design edicao-video">
+                        <div class="video-container" data-video-id="SSc7QVafEAE">
+                            <img src="https://img.youtube.com/vi/SSc7QVafEAE/maxresdefault.jpg" class="video-thumbnail" alt="Impro Solar Recrutamento">
+                            <div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Vídeo De Recrutamento Que Aumentou Leads</div>
+                            <div class="card-subtitle">O que fiz:</div>
+                            <div class="project-tags">
+                                <span class="tag-base tag-roteirizacao">Roteirização</span>
+                                <span class="tag-base tag-motion">Motion Design</span>
+                                <span class="tag-base tag-edicao">Edição de Vídeo</span>
+                            </div>
+                            <div class="card-subtitle">Resultados:</div>
+                            <div class="project-keywords">Recrutamento | Geração de Leads | Atração de Talentos | B2B | RH</div>
+                        </div>
+                    </div>
+                    <!-- Último: Vídeo Pet -->
+                    <div class="project-card" id="video-pet-engaja-tutores" data-tags="roteirizacao motion-design">
+                        <div class="video-container" data-video-id="1hqe2wtz7Pg">
+                            <img src="https://img.youtube.com/vi/1hqe2wtz7Pg/maxresdefault.jpg" class="video-thumbnail" alt="Pet"><div class="play-button"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-title">Vídeo Pet Que Engaja Tutores E Aumenta Agendamentos</div>
+                            <div class="card-subtitle">O que fiz:</div>
+                             <div class="project-tags">
+                                <span class="tag-base tag-roteirizacao">Roteirização</span>
+                                <span class="tag-base tag-motion">Motion Design</span>
+                            </div>
+                            <div class="card-subtitle">Resultados:</div>
+                            <div class="project-keywords">Pet | Saúde Animal | Tutores | Agendamentos | Cuidado</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1635,7 +1705,7 @@
                     <p class="category-description">Vídeos premium B2B que elevam a reputação corporativa</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <div class="project-card" id="white-label-produtoras" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="CKC-dDqvfaQ">
                             <img src="https://img.youtube.com/vi/CKC-dDqvfaQ/maxresdefault.jpg" class="video-thumbnail" alt="Produtoras">
                             <div class="play-button"></div>
@@ -1652,41 +1722,7 @@
                         </div>
                     </div>
                     
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
-                        <div class="video-container" data-video-id="SSc7QVafEAE">
-                            <img src="https://img.youtube.com/vi/SSc7QVafEAE/maxresdefault.jpg" class="video-thumbnail" alt="Impro Solar"><div class="play-button"></div>
-                        </div>
-                        <div class="project-info">
-                            <div class="project-title">Vídeo De Recrutamento Que Aumentou Leads</div>
-                            <div class="card-subtitle">O que fiz:</div>
-                            <div class="project-tags">
-                                <span class="tag-base tag-roteirizacao">Roteirização</span>
-                                <span class="tag-base tag-motion">Motion Design</span>
-                                <span class="tag-base tag-edicao">Edição de Vídeo</span>
-                            </div>
-                            <div class="card-subtitle">Resultados:</div>
-                            <div class="project-keywords">Recrutamento | Geração de Leads | Atração de Talentos | B2B | RH</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
-                        <div class="video-container" data-video-id="0T4LQQ-hG3U">
-                            <img src="https://img.youtube.com/vi/0T4LQQ-hG3U/maxresdefault.jpg" class="video-thumbnail" alt="SS White"><div class="play-button"></div>
-                        </div>
-                        <div class="project-info">
-                            <div class="project-title">Vídeo B2B Que Fecha Contratos Antes Da Reunião</div>
-                            <div class="card-subtitle">O que fiz:</div>
-                            <div class="project-tags">
-                                <span class="tag-base tag-roteirizacao">Roteirização</span>
-                                <span class="tag-base tag-motion">Motion Design</span>
-                                <span class="tag-base tag-edicao">Edição de Vídeo</span>
-                            </div>
-                            <div class="card-subtitle">Resultados:</div>
-                            <div class="project-keywords">Vendas B2B | Institucional | Credibilidade | Fechamento | Autoridade</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                    <div class="project-card" id="institucional-impro-solar-es" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="LhEpSLclyfo">
                             <img src="https://img.youtube.com/vi/LhEpSLclyfo/maxresdefault.jpg" class="video-thumbnail" alt="Impro ES"><div class="play-button"></div>
                         </div>
@@ -1703,7 +1739,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <div class="project-card" id="institucional-santa-helena" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="UvjsIQn8_UU">
                             <img src="https://img.youtube.com/vi/UvjsIQn8_UU/maxresdefault.jpg" class="video-thumbnail" alt="Santa Helena"><div class="play-button"></div>
                         </div>
@@ -1719,7 +1755,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design stop-motion">
+                    <div class="project-card" id="case-zangari-stop-motion" data-tags="roteirizacao motion-design stop-motion">
                         <div class="video-container" data-video-id="i8rolVae3bc">
                             <img src="https://img.youtube.com/vi/i8rolVae3bc/maxresdefault.jpg" class="video-thumbnail" alt="Zangari"><div class="play-button"></div>
                         </div>
@@ -1736,7 +1772,7 @@
                         </div>
                     </div>
                     
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                    <div class="project-card" id="video-imobiliario-helbor" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="F31UuaJmJ10">
                             <img src="https://img.youtube.com/vi/F31UuaJmJ10/maxresdefault.jpg" class="video-thumbnail" alt="Helbor"><div class="play-button"></div>
                         </div>
@@ -1753,7 +1789,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao edicao-video">
+                    <div class="project-card" id="case-b2b-marcopolo" data-tags="roteirizacao edicao-video">
                         <div class="video-container" data-video-id="2gt-tcyn0qM">
                             <img src="https://img.youtube.com/vi/2gt-tcyn0qM/maxresdefault.jpg" class="video-thumbnail" alt="Marcopolo"><div class="play-button"></div>
                         </div>
@@ -1769,7 +1805,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                    <div class="project-card" id="case-nucleo-solar" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="wP9PbKijr34">
                             <img src="https://img.youtube.com/vi/wP9PbKijr34/maxresdefault.jpg" class="video-thumbnail" alt="Núcleo Solar"><div class="play-button"></div>
                         </div>
@@ -1794,7 +1830,7 @@
                     <p class="category-description">Especialização em comunicação técnica e educacional</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <div class="project-card" id="unifesp-comunicacao-medica" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="sGZJih7Eqpg">
                             <img src="https://img.youtube.com/vi/sGZJih7Eqpg/maxresdefault.jpg" class="video-thumbnail" alt="Unifesp"><div class="play-button"></div>
                         </div>
@@ -1810,7 +1846,7 @@
                         </div>
                     </div>
                     
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <div class="project-card" id="curso-digital-sucesso-vendas" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="JE4NteXIukw">
                             <img src="https://img.youtube.com/vi/JE4NteXIukw/maxresdefault.jpg" class="video-thumbnail" alt="Curso"><div class="play-button"></div>
                         </div>
@@ -1826,7 +1862,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                    <div class="project-card" id="curso-concurso-conteudo-denso" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="KO61ttP2eHw">
                             <img src="https://img.youtube.com/vi/KO61ttP2eHw/maxresdefault.jpg" class="video-thumbnail" alt="Concursos"><div class="play-button"></div>
                         </div>
@@ -1843,7 +1879,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design edicao-video">
+                    <div class="project-card" id="institucional-alta-diagnostico" data-tags="roteirizacao motion-design edicao-video">
                         <div class="video-container" data-video-id="5MREb2U1ftQ">
                             <img src="https://img.youtube.com/vi/5MREb2U1ftQ/maxresdefault.jpg" class="video-thumbnail" alt="Alta"><div class="play-button"></div>
                         </div>
@@ -1860,7 +1896,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-tags="roteirizacao motion-design">
+                    <div class="project-card" id="clipe-infantil-plano-6" data-tags="roteirizacao motion-design">
                         <div class="video-container" data-video-id="9RFmPc8zvjY">
                             <img src="https://img.youtube.com/vi/9RFmPc8zvjY/maxresdefault.jpg" class="video-thumbnail" alt="Musical"><div class="play-button"></div>
                         </div>
@@ -2025,30 +2061,32 @@
             opacity: 1, x: 0, y: 0
         });
        
+        // Animação dos Cards com Rotação e Stagger no Conteúdo
         gsap.utils.toArray('.project-card').forEach((card) => {
             const cardElements = [
                 card.querySelector('.project-title'),
-                card.querySelector('.card-subtitle'),
+                card.querySelectorAll('.card-subtitle')[0], // "O que fiz:"
                 card.querySelector('.project-tags'),
-                card.querySelectorAll('.card-subtitle')[1],
+                card.querySelectorAll('.card-subtitle')[1], // "Resultados:"
                 card.querySelector('.project-keywords')
             ];
 
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: card,
-                    start: 'top bottom-=150px',
-                    end: 'center center',
-                    scrub: 1.5,
+                    start: 'top bottom-=150px', // Inicia um pouco antes
+                    end: 'center center+=100px', // Termina um pouco depois do centro
+                    scrub: 1.5, // Mantém o scrub mais lento
                 }
             });
 
+            // Animação de rotação do card inteiro
             tl.fromTo(card, 
                 { 
-                    autoAlpha: 0, 
-                    rotationY: -90,
+                    autoAlpha: 0, // Usa autoAlpha para visibilidade e opacidade
+                    rotationY: -90, // Rotação no eixo Y
                     scale: 0.9,
-                    transformOrigin: "center center"
+                    transformOrigin: "center center" // Eixo no centro
                 },
                 { 
                     autoAlpha: 1, 
@@ -2058,6 +2096,7 @@
                 }
             );
 
+            // Animação escalonada (stagger) do conteúdo interno
             tl.fromTo(cardElements, 
                 {
                     y: 20,
@@ -2066,35 +2105,16 @@
                 {
                     y: 0,
                     opacity: 1,
-                    stagger: 0.25,
+                    stagger: 0.25, // Stagger mais lento
                     ease: 'power2.out'
                 },
-                "-=0.5" 
+                "-=0.5" // Começa um pouco antes do fim da animação do card
             );
         });
         
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                
-                const filterValue = button.getAttribute('data-filter');
-                
-                projectCards.forEach(card => {
-                    const tags = card.getAttribute('data-tags');
-                    const tagArray = tags ? tags.split(' ') : [];
-                    
-                    if (filterValue === 'todos' || (tags && tagArray.includes(filterValue))) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
+        // Lógica de Filtro REMOVIDA
+        // const filterButtons = document.querySelectorAll('.filter-btn');
+        // ... (todo o bloco de filterButtons.forEach foi removido) ...
         
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('click', function() {
@@ -2102,10 +2122,11 @@
                 if (container && !container.classList.contains('loaded')) {
                     const videoId = container.getAttribute('data-video-id');
                     const iframe = document.createElement('iframe');
-                    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&enablejsapi=1`);
+                    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?modestbranding=1&controls=1&rel=0&showinfo=0&autoplay=1`);
+                    iframe.setAttribute('frameborder', '0');
+                    iframe.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
                     iframe.setAttribute('allowfullscreen', '');
-                    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-                    container.innerHTML = '';
+                    container.innerHTML = ''; 
                     container.appendChild(iframe);
                     container.classList.add('loaded');
                 }
@@ -2138,46 +2159,102 @@
                     document.body.style.overflow = '';
                 }
 
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const headerOffset = 100;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                // Verifica se é um link interno de scroll
+                if (targetId.startsWith('#')) {
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        const headerOffset = 100; // Ajuste conforme a altura do seu header fixo
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
                 }
+                // Se não for um link interno (ex: link externo), deixa o navegador seguir o link
+                // else { window.location.href = targetId; } // Descomente se precisar de links externos no menu
             });
         });
 
+
+        // Efeito 3D Hover (Desktop) e Touch (Mobile)
         document.querySelectorAll('.project-card').forEach(card => {
-            if (window.innerWidth > 768) {
+            card.style.setProperty('--before-opacity', '0');
+
+            if (window.innerWidth > 768) { 
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
-                    const rotateX = (y - centerY) / 20;
+                    const rotateX = (y - centerY) / 20; 
                     const rotateY = (centerX - x) / 20;
                     
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                    gsap.to(card, {
+                        rotationX: rotateX,
+                        rotationY: rotateY,
+                        y: -10, 
+                        boxShadow: "0 20px 60px rgba(0, 255, 224, 0.3)", 
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                    gsap.to(card.style, { '--before-opacity': 1, duration: 0.3 }); 
                 });
                 
                 card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                     gsap.to(card, {
+                        rotationX: 0,
+                        rotationY: 0,
+                        y: 0,
+                        boxShadow: "0 0 0 rgba(0, 0, 0, 0)", 
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                     gsap.to(card.style, { '--before-opacity': 0, duration: 0.3 });
                 });
-            } else {
+            } else { 
                 card.addEventListener('touchstart', function() {
-                    this.classList.add('card-touched');
+                    this.classList.add('card-touched'); 
+                    gsap.to(this.style, { '--before-opacity': 1, duration: 0.2 });
                 }, { passive: true });
                 card.addEventListener('touchend', function() {
                     setTimeout(() => {
                          this.classList.remove('card-touched');
-                    }, 200);
+                         gsap.to(this.style, { '--before-opacity': 0, duration: 0.2 });
+                    }, 200); 
                 });
             }
         });
+
+        // Script para rolar até o vídeo ao carregar a página com hash (AJUSTADO PARA IDs DE TEXTO)
+        function scrollToVideoOnLoad() {
+            if (window.location.hash) {
+                const targetId = window.location.hash.substring(1); 
+                const targetCard = document.getElementById(targetId); 
+
+                if (targetCard) {
+                    setTimeout(() => {
+                        const headerOffset = 150; 
+                        const elementPosition = targetCard.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        targetCard.classList.add('card-highlight');
+                        setTimeout(() => {
+                             targetCard.classList.remove('card-highlight');
+                        }, 2500); 
+
+                    }, 500); 
+                }
+            }
+        }
+
+        window.addEventListener('load', scrollToVideoOnLoad);
         
-        console.log('✅ Site completo e atualizado com todas as solicitações!');
+        console.log('✅ Site completo e atualizado sem filtros e com menu original!');
     </script>
 
 </body>
