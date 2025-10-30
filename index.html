@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alexis Jr. - Editor de Vídeo e Motion Designer | A7 Motion Design</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://a7motiondesign.com/wp-content/uploads/2021/03/cropped-novo_logo_motiondesign-1.png">
+    
     <!-- GSAP + ScrollTrigger -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    
+
     
     <!-- Google Fonts - Playfair Display + Raleway -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -666,12 +671,14 @@
             font-family: 'Raleway', sans-serif;
             color: var(--gray);
             font-size: 1.1rem;
+            margin-bottom: 3rem;
         }
         
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
         
         .project-card {
@@ -2140,37 +2147,77 @@
         // const filterButtons = document.querySelectorAll('.filter-btn');
         // ... (todo o bloco de filterButtons.forEach foi removido) ...
         
+        // Função para pausar todos os outros vídeos
+        function pauseAllOtherVideos(currentContainer) {
+            document.querySelectorAll('.video-container.loaded').forEach(container => {
+                // Pausa apenas se não for o container atual
+                if (container !== currentContainer) {
+                    const iframe = container.querySelector('iframe');
+                    if (iframe) {
+                        // Envia o comando de pausa via postMessage
+                        iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo"}', '*');
+                    }
+                }
+            });
+        }
+
+        // Lógica de carregamento do vídeo ao clicar no card (Versão com postMessage)
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('click', function() {
                 const container = this.querySelector('.video-container');
+                
+                // 1. Pausa todos os outros vídeos antes de carregar/tocar este
+                pauseAllOtherVideos(container);
+
                 if (container && !container.classList.contains('loaded')) {
                     const videoId = container.getAttribute('data-video-id');
                     const iframe = document.createElement('iframe');
-                    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?modestbranding=1&controls=1&rel=0&showinfo=0&autoplay=1`);
+                    
+                    // IMPORTANTE: Adicionar enablejsapi=1 para permitir o controle via postMessage
+                    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?modestbranding=1&controls=1&rel=0&showinfo=0&autoplay=1&enablejsapi=1`);
+                    
                     iframe.setAttribute('frameborder', '0');
                     iframe.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
                     iframe.setAttribute('allowfullscreen', '');
                     container.innerHTML = ''; 
                     container.appendChild(iframe);
                     container.classList.add('loaded');
+                    
+                    // Inicia a observação de interseção para o novo iframe
+                    videoObserver.observe(container);
+                } else if (container && container.classList.contains('loaded')) {
+                    // Se o vídeo já está carregado, envia o comando de play
+                    const iframe = container.querySelector('iframe');
+                    if (iframe) {
+                        iframe.contentWindow.postMessage('{"event":"command","func":"playVideo"}', '*');
+                    }
                 }
             });
         });
         
+        // Lógica de pause on scroll (usando IntersectionObserver e postMessage)
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const container = entry.target;
                 const iframe = container.querySelector('iframe');
                 
-                if (iframe && !entry.isIntersecting) {
-                    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                if (iframe) {
+                    if (entry.isIntersecting) {
+                        // Opcional: Tocar o vídeo quando entrar na viewport (se estiver pausado)
+                        // iframe.contentWindow.postMessage('{"event":"command","func":"playVideo"}', '*');
+                    } else {
+                        // Pausa o vídeo quando sair da viewport
+                        iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo"}', '*');
+                    }
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.6 }); // Ajuste o threshold para 60% visível
         
-        document.querySelectorAll('.video-container').forEach(container => {
-            videoObserver.observe(container);
-        });
+        // Como a lógica é de 'click-to-load', a observação é iniciada no clique.
+        // Não é necessário observar os containers inicialmente.
+
+        
+
         
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
